@@ -10,4 +10,5 @@ public class BankRepository {
     public List<Bank> findAll() {
         return banks;
     }
+    
 }
