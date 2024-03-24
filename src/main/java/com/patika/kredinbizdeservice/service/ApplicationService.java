@@ -12,6 +12,8 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 @RequiredArgsConstructor
 @Slf4j
@@ -36,6 +38,10 @@ public class ApplicationService {
         return savedApplication;
     }
 
+    public List<Application> getApplicationsByEmail(String email) {
+
+        return applicationRepository.findByUserEmail(email);
+    }
     private AkbankApplicationRequest prepareAkbankApplicationRequest(User user) {
         AkbankApplicationRequest applicationRequest = new AkbankApplicationRequest();
 

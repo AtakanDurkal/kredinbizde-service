@@ -13,4 +13,19 @@ public class ApplicationRepository {
         applicationList.add(application);
         return application;
     }
+   public List<Application> findByUserEmail(String email){
+       List<Application> foundApplications = new ArrayList<>();
+       for (Application application : applicationList) {
+           if (application.getUser().getEmail().equals(email)) {
+               foundApplications.add(application);
+           }
+       }
+       return foundApplications;
+   }
+
+
+
+
+
+
 }

@@ -6,12 +6,18 @@ import java.util.List;
 public class CreditCard implements Product{
 
     private BigDecimal fee;
+    private String name;
     private List<Campaign> campaignList;
     private Bank bank;
 
-    public CreditCard(BigDecimal fee, List<Campaign> campaignList) {
+    public CreditCard(BigDecimal fee, List<Campaign> campaignList,String name ) {
         this.fee = fee;
         this.campaignList = campaignList;
+        this.name=name;
+    }
+
+    public List<Campaign> getCampaigns() {
+        return campaignList;
     }
 
     public BigDecimal getFee() {
@@ -33,6 +39,7 @@ public class CreditCard implements Product{
     public Bank getBank() {
         return bank;
     }
+    public String getName(){return name; }
 
     public void setBank(Bank bank) {
         this.bank = bank;

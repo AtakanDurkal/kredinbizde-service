@@ -8,8 +8,12 @@ public class Bank {
     private List<Loan> loanList;
     private List<CreditCard> creditCards;
 
+
     public String getName() {
         return name;
+    }
+    public List<CreditCard> getCreditCardList() {
+        return creditCards;
     }
 
     public void setName(String name) {

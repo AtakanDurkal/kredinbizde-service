@@ -8,6 +8,8 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 @RequestMapping("api/applications")
 @RequiredArgsConstructor
@@ -20,5 +22,14 @@ public class ApplicationController {
     public ResponseEntity<Application> createApplication(@RequestBody ApplicationRequest request) {
         return ResponseEntity.ok().body(applicationService.createApplication(request));
     }
+
+    @GetMapping("/user/{email}")
+    public ResponseEntity<List<Application>> getApplicationsByEmail(@PathVariable String email) {
+        List<Application> applications = applicationService.getApplicationsByEmail(email);
+        if (applications != null && !applications.isEmpty()) {
+            return ResponseEntity.ok().body(applications);
+        } else {
+            return ResponseEntity.notFound().build();
+        }}
 
 }
